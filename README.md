@@ -2,26 +2,24 @@
 
 ## Introduction
 
-Welcome to the IPFS File Manager Demo DApp, powered by Krypcore. This DApp allows users to store explore multiple blockchain networks seamlessly, providing insights into recent blocks, transactions, addresses, and more.
+Welcome to the IPFS File Manager Demo DApp, powered by KrypCore. This decentralized application (DApp) enables users to upload and retrieve files by implementing and demonstrating the capabilities of the InterPlanetary File System (IPFS), providing a seamless experience for decentralized file storage.
 
 ## About
 
-This project is part of a series dedicated to building decentralized applications (DApps) with Krypcore Web3. By leveraging Krypcore's RPC Nodes and RPC APIs, developers can create customized block explorers for various blockchain networks.
+This project is part of a series dedicated to building decentralized applications (DApps) with KrypCore Web3. By leveraging Krypcore's IPFS Infrastructure APIs, developers can create applications that store files in a decentralized manner, ensuring data integrity and availability.
 
 ## Features
 
-- View the recent 10 blocks processed on the chain
-- Search for a specific transaction hash to find more details
-- Lookup any address on the chain
-- Search for a specific block number or block hash to get block details
-- Get the list of transactions in a block
-- Toggle between multiple chains for exploration
+- Upload multiple files to IPFS
+- Display the hashes of uploaded files
+- Retrieve files from IPFS using their hash
+- Provide feedback on invalid files during the upload process
 
 ## Getting Started
 
 ### Prerequisites
 
-- Create an account on [Krypcore Web3](https://www.krypcore.com/) to obtain the necessary RPC Endpoints for your project.
+- Create an account on [Krypcore Web3](https://www.krypcore.com/) to obtain the necessary Authorization Token and IPFS Endpoint URLs for your project.
 - Ensure Node.js v12 is installed on your system.
 - Familiarize yourself with React.js.
 
@@ -30,14 +28,14 @@ This project is part of a series dedicated to building decentralized application
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/krypc-code/krypcore-block-explorer.git
+git clone https://github.com/our-dapp-repo/ipfs-file-manager-demo.git
 ```
 
 
 2. Navigate to the project directory:
 
 ```bash
-cd krypcore-block-explorer
+cd ipfs-file-manager-demo
 ```
 
 
@@ -48,7 +46,7 @@ npm install
 ```
 
 
-4. Create a `.env` file based on the `.env.example` file and replace all variables with the respective endpoint URLs from your Krypcore Web3 dashboard.
+4. Create a `.env` file based on the `.env.example` file and replace all variables with the APIKEY and Auth Token from your Krypcore Web3 dashboard (Your APIKEY is at the end of both client and gateway IPFS endpoint URLs).
 
 ### Usage
 
@@ -61,16 +59,11 @@ npm start
 
 2. Access the application at `localhost:3000`.
 
-### API Used
+### IPFS HTTP API Used
 
-- `eth_getBalance`: Fetches the balance of a given address.
-- `eth_getTransactionCount`: Fetches the nonce/total transactions performed by a given address.
-- `eth_getBlock`: Gets the block details for a given block number.
-- `eth_getTransactionReceipt`: Provides information about a given transaction hash.
-- `eth_getTransaction`: Provides details regarding the transaction.
-- `eth_getBlockNumber`: Fetches the current/latest block number.
-- `eth_getGasPrice`: Fetches the current gas price.
+- `add`: Adds a file to IPFS and returns its hash.
+- `get`: Retrieves a file from IPFS using its hash.
 
 ## Conclusion
 
-We hope this guide helps you get started with creating your multi-chain block explorer with Krypcore Web3. Feel free to customize it further or add any other custom networks. Join our developer community on Discord to discuss any DApp ideas you're building!
+We hope this guide helps you get started with creating your IPFS File Manager with Krypcore Web3. Feel free to customize it further or add any other APIs from our [documentation](https://docs.krypcore.com/dev-docs/api-reference/infrastructure-apis/ipfs-http-client-apis/http-api-methods) for additional functionality. Join our developer community on Discord to discuss any DApp ideas you're building!
