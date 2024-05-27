@@ -46,7 +46,7 @@ npm install
 ```
 
 
-4. Create a `.env` file based on the `.env.example` file and replace all variables with the APIKEY and Auth Token from your Krypcore Web3 dashboard (Your APIKEY is at the end of both client and gateway IPFS endpoint URLs).
+4. Create a `.env` file based on the `.env.example` file and replace the variables with the IPFS Endpoint URLs and Auth Token from your Krypcore Web3 dashboard.
 
 ### Usage
 
