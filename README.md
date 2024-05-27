@@ -28,7 +28,7 @@ This project is part of a series dedicated to building decentralized application
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/our-dapp-repo/ipfs-file-manager-demo.git
+git clone https://github.com/krypc-code/ipfs-file-manager-demo.git
 ```
 
 
