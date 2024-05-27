@@ -3,13 +3,10 @@ import FormData from 'form-data';
 
 
 const authorizationToken = process.env.REACT_APP_AUTH;
-const apiKey = process.env.REACT_APP_APIKEY;
 
 const apiClientUrl = process.env.REACT_APP_CLIENT_APIURL;
 const apiGatewayUrl = process.env.REACT_APP_GATEWAY_APIURL;
 
-
-//code snippet for get file directly from IPFS gateway
 
 export async function addFile(file) {
     const data = new FormData();
@@ -17,7 +14,7 @@ export async function addFile(file) {
   
     try {
         console.log("In add file API");
-        const url = `${apiClientUrl + apiKey}/api/v0/add?recursive=false`;
+        const url = `${apiClientUrl}/api/v0/add?recursive=false`;
         const headers = {
             'Authorization': authorizationToken,
             'Content-Type': 'multipart/form-data',
@@ -40,13 +37,13 @@ export async function addFile(file) {
   
       try {
           console.log("In get file API: " + hash);
-          const url = `${apiGatewayUrl + apiKey}/ipfs/${hash}`;
+          const url = `${apiGatewayUrl}/ipfs/${hash}`;
           const response = await axios.get(url);
           if (!response.status === 200) throw new Error(response.status);
           
             const responseData = response;
           console.log(responseData);
-          return url; // Security Concern, giving apikey in url
+          return url;
           
       }
       catch (error) {

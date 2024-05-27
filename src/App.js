@@ -19,7 +19,7 @@ function App() {
     for (const file of files) {
       try {
         const fileHash = await addFile(file);
-        const fileUrl = await getFile(fileHash); // Get the file URL immediately
+        const fileUrl = await getFile(fileHash); 
         newHashes.push({ hash: fileHash, url: fileUrl });
       } catch (error) {
         newHashes.push({ hash: 'Invalid file' });
