@@ -19,9 +19,10 @@ function App() {
     for (const file of files) {
       try {
         const fileHash = await addFile(file);
-        newHashes.push(fileHash);
+        const fileUrl = await getFile(fileHash); // Get the file URL immediately
+        newHashes.push({ hash: fileHash, url: fileUrl });
       } catch (error) {
-        newHashes.push('Invalid file');
+        newHashes.push({ hash: 'Invalid file' });
       }
     }
     setHashes(newHashes);
@@ -40,17 +41,32 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <a href="https://krypcore.com/" target="_blank" rel="noopener noreferrer">
+          <img src="https://krypcore.com/static/media/krypcore-white%201.b0fd1e70da9e42cc64307ebf5db47a8e.svg" className="App-logo" alt="KrypCore logo" />
+        </a>
         <h1>IPFS File Manager Demo Dapp</h1>
         <hr />
 
         <div className="file-upload-section">
-        <h2>Upload Files to IPFS</h2>
+          <h2>Upload Files to IPFS</h2>
           {files.length > 0 && (
             <>
               <ul className="file-list">
                 {files.map((file, index) => (
                   <li key={index}>
-                    {file.name} {hashes[index] && <span>- {hashes[index]}</span>}
+                    {file.name} {hashes[index] && hashes[index].hash !== 'Invalid file' && (
+                      <a
+                        href={hashes[index].url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="file-link"
+                      >
+                        {hashes[index].hash}
+                      </a>
+                    )}
+                    {hashes[index] && hashes[index].hash === 'Invalid file' && (
+                      <span>{hashes[index].hash}</span>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -78,6 +94,15 @@ function App() {
               Open File
             </button>
           )}
+        </div>
+
+        <div className="footer">
+          <p>
+            Read our <a href="https://docs.krypcore.com/dev-docs" target="_blank" rel="noopener noreferrer" className="footer-link">KrypCore API and SDK documentation here</a>.
+          </p>
+          <p>
+            Ask us a question on our <a href="https://discord.com/invite/m74sFXNv5W" target="_blank" rel="noopener noreferrer" className="footer-link">Discord server</a>.
+          </p>
         </div>
       </header>
     </div>
