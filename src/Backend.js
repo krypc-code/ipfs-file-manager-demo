@@ -4,8 +4,8 @@ import FormData from 'form-data';
 
 const authorizationToken = process.env.REACT_APP_AUTH;
 
-const apiClientUrl = process.env.REACT_APP_CLIENT_APIURL;
-const apiGatewayUrl = process.env.REACT_APP_GATEWAY_APIURL;
+const apiClientUrl = process.env.REACT_APP_CLIENT_URL;
+const apiGatewayUrl = process.env.REACT_APP_GATEWAY_URL;
 
 
 export async function addFile(file) {
@@ -13,7 +13,7 @@ export async function addFile(file) {
     data.append('file', file);
   
     try {
-        console.log("In add file API");
+        console.log("Upload file API");
         const url = `${apiClientUrl}/api/v0/add?recursive=false`;
         const headers = {
             'Authorization': authorizationToken,
@@ -25,7 +25,6 @@ export async function addFile(file) {
         if (response.status !== 200) throw new Error(response.status);
         
         const responseData = response.data.Hash;
-        console.log(responseData);
         return responseData;
     } catch (error) {
         console.log(error);
@@ -36,13 +35,11 @@ export async function addFile(file) {
   export async function getFile(hash) {
   
       try {
-          console.log("In get file API: " + hash);
           const url = `${apiGatewayUrl}/ipfs/${hash}`;
           const response = await axios.get(url);
           if (!response.status === 200) throw new Error(response.status);
           
             const responseData = response;
-          console.log(responseData);
           return url;
           
       }
