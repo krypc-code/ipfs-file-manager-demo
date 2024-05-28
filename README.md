@@ -28,7 +28,7 @@ This project is part of a series dedicated to building decentralized application
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/our-dapp-repo/ipfs-file-manager-demo.git
+git clone https://github.com/krypc-code/ipfs-file-manager-demo.git
 ```
 
 
@@ -46,7 +46,7 @@ npm install
 ```
 
 
-4. Create a `.env` file based on the `.env.example` file and replace all variables with the APIKEY and Auth Token from your Krypcore Web3 dashboard (Your APIKEY is at the end of both client and gateway IPFS endpoint URLs).
+4. Create a `.env` file based on the `.env.example` file and replace the variables with the IPFS Endpoint URLs and Auth Token from your Krypcore Web3 dashboard.
 
 ### Usage
 
